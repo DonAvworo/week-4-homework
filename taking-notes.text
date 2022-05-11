@@ -1,0 +1,34 @@
+the workflow used to implement the functions is as follows
+
+Note 
+Variables are just like a container eg. a Box that can hold Values
+The Name is like a sticker tagged to the box
+The Value is what you put in the box
+The Semi-Colon is the lid clossing the box
+
+Example:
+let startGameBtn = document.getElementById('startQuizBtn');
+Box     Name                     VALUE                    lid
+
+
+For Bottuns  
+=> create variable and give it any logical name of choice (eg. let startGameBtn)
+=> then get the DOM element and put it inside the variable as a value
+=> get the variable (Box), and add a event listener (this is a JS DOM Method)
+=> add the click event 
+=> add the function and/or the Capture
+=> THE SYNTAX IS document.addEventListener(event, function, Capture)
+=> then create the fuction that has been declared
+
+for the fuction
+
+=>
+=>
+=>
+=>
+=>
+=>
+=>
+=>
+=>
+

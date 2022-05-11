@@ -1,0 +1,45 @@
+Java Script and CSS To-Do list
+
+1) wrapper-1 should be visible at all time
+(task completed (defalt display))
+
+2) all other containers should be hidden by default until they are called
+(task completed with css)
+
+3) start button visibility (default display)
+    a. start button should be hidden after being clicked
+    b. start button calls "Introductions container"
+    c. in summary, start button changes the default page to introduction page
+
+4) introduction page ppulates the screen
+    a. user selects the "Quit Game" button, returns user to default page.
+    b. user selects the "Continue" button;
+        1. gets an alert that the game is about to start(optional)
+        2. game starts and first question is populated on screen
+        3. starts the timer
+
+5) when first question is answered;
+    a. correctly:
+        1. correct.wav sound is triggered (optional)
+        2. next question is populated
+
+    b. incorrectly:
+        1. incorrect.wav sound is triggered (optional)
+        2. ten seconds is deducted from timer
+        3. next question is populated
+
+6) timer
+    a. timer to start as the game begins
+    b. 10 second to be deducted from time when a question is wrongly answered
+    c. game to end when timer counts down to zero
+    
+
+Anticipated probles
+    1. Questions and multiple answers populaing area may need styling
+       in order to accomodate the questions and options.
+    2. calling the hidden documents may become very challenging
+
+
+Personal Challenge
+    If I finish these tasks successfully, then I can say my front-end dev skills 
+    is above 25%.
