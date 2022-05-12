@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: Arial;
+}
+body {
+    background-color: aqua;
+    font-size: 120%;
+}
+/* startQuizBtn possitioning - used transform property to preserve 
+values when repositioning button */
+.startQuizBtn,
+.insttructions {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+/*startQuizBtn embelishments*/
+.startQuizBtn .startBtn{
+    display: flex;
+    cursor: pointer;
+    color: rgb(25, 97, 97);
+    font-weight: 500;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 80px;
+}
+.startQuizBtn{
+    visibility: visible;
+}
+/*buttons to start or exit quiz*/
+.insttructions .buttons {
+    display: flex;
+    margin-top: 5px;
+    height: 50px;
+    padding: 0 35px;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid lightgray;
+}
+/*styling main quiz/display area*/
+/*display set to none will hide the introduction info and called back with JS*/
+.insttructions {
+    visibility: hidden;
+    /* display: none; */
+    width: 600px;
+    text-align: center;
+    background-color: whitesmoke;
+    border-radius: 0px 0px 20px 20px;
+    padding: 15px;
+}
+/*styling for the "Instruction" div */
+.insttructions .instTitle {
+    position: absolute;
+    background-color: whitesmoke;
+    height: 50px;
+    width: 100%;
+    font-size: large;
+    align-items: center;
+    text-align: center;
+    bottom: 119px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 20px 20px 0px 0px;
+}
+.insttructions .buttons button {
+    margin: 0 6px;
+    width: 100px;
+    height: 40px;
+    cursor: pointer;
+    border: 2px;
+    border-radius: 5px;
+    background: aqua;
+    /* transition: all 0.1s ease; */
+    /* the transition property willbe used to effect the psuedo cls of buttons*/
+}
+.insttructions .buttons .quitQuiz:hover {
+    background: red;
+    border-color: solid white;
+    border: 5px;
+    opacity: 20%;
+}
+.insttructions .buttons .continue:hover {
+    background: green;
+    border-color: solid white;
+    border: 5px;
+    opacity: 20%;
+}
+/*This is the main game page for the quiz*/
+.wrapper-1 .gameTitle .title {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    color: black;
+    opacity: 50%;
+    bottom: 100px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 80px;
+}
+.wrapper-1 a {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    color: black;
+    opacity: 50%;
+}
+.wrapper-1 .timer {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 75%;
+    color: black;
+    opacity: 50%;
+}
+/*display set to none will hide the introduction info and called back with JS*/
+.wrapper-2 {
+    visibility: hidden;
+    width: 600px;
+    text-align: center;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    padding: 15px;
+}
+/* when question is called, this will be displayed */
+.wrapper-2 .questions{
+    visibility: hidden;
+    
+}
+.wrapper-2 {
+    position: absolute;
+    background-color: whitesmoke;
+    height: 50px;
+    /* width: 100%; */
+    font-size: large;
+    align-items: center;
+    top: 50%;
+    /* text-align: center; */
+    transform: translate(-50%, -50%);
+    left: 50%;
+    padding: 15px 30px;
+    /* border: none; */
+    /* border-radius: 20px 20px 0px 0px; */
+}
+.wrapper-2 #endOfQuizScreen .finalScore {
+    position: absolute;
+    background-color: whitesmoke;
+    height: 50px;
+    width: 100%;
+    font-size: large;
+    align-items: center;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 20px;
+}
+.wrapper-2 #endOfQuizScreen .initials {
+    position: absolute;
+    /* background-color: whitesmoke; */
+    height: 50px;
+    width: 100%;
+    font-size: large;
+    align-items: center;
+    top: 200%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 20px;
+}
+
+
+/* STYLING FOR THE SCORE PAGE */
+
+.score-wrapper {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+
+.score-wrapper .goBackBtn, .clearScoreBtn{
+    /* background: red; */
+    /* border-color: solid white; */
+    /* border: 5px; */
+    /* opacity: 20%; */
+    display: flex;
+    margin-top: 5px;
+    height: 50px;
+    padding: 0 35px;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    /* background: green; */
+    /* border-color: solid white;
+    border: 5px; */
+    border-radius: 50px;
+}

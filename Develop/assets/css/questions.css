@@ -1,0 +1,33 @@
+ /*This is the main game page for the quiz*/
+ 
+ .wrapper .gameTitle .title {
+     transform: translate(-50%, -50%);
+     position: absolute;
+     left: 50%;
+     top: 40%;
+     color: black;
+     opacity: 50%;
+     bottom: 100px;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     padding: 15px 30px;
+     border: none;
+     border-radius: 80px;
+ }
+ 
+ .wrapper a {
+     transform: translate(-50%, -50%);
+     position: absolute;
+     left: 50%;
+     top: 80%;
+     color: black;
+     opacity: 50%;
+ }
+ 
+ .wrapper .timer {
+     transform: translate(-50%, -50%);
+     position: absolute;
+     left: 50%;
+     top: 75%;
+     color: black;
+     opacity: 50%;
+ }
