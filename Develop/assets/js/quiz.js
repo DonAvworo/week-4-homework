@@ -60,7 +60,7 @@ function StartTheGame(){
 }
 
 // create variables and function for timer
-let timer = 60;
+let timer = 59;
 let questionIndex = 0;
 let score = 0;
 
@@ -109,10 +109,11 @@ function displayTheQuestions(){
 }
 
 //create a function that will call the answer to question
-function answerQuestion ()
-{
+function answerQuestion (){
+
     questionIndex++;
     displayTheQuestions();
+    
 }
 
 

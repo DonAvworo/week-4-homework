@@ -1,24 +1,24 @@
 Java Script and CSS To-Do list
 
-1) wrapper-1 should be visible at all time
+(1) wrapper-1 should be visible at all time
 (task completed (defalt display))
 
-2) all other containers should be hidden by default until they are called
+(2) all other containers should be hidden by default until they are called
 (task completed with css)
 
-3) start button visibility (default display)
+(3) start button visibility (default display)
     a. start button should be hidden after being clicked
     b. start button calls "Introductions container"
     c. in summary, start button changes the default page to introduction page
 
-4) introduction page ppulates the screen
+(4) introduction page ppulates the screen
     a. user selects the "Quit Game" button, returns user to default page.
     b. user selects the "Continue" button;
         1. gets an alert that the game is about to start(optional)
         2. game starts and first question is populated on screen
         3. starts the timer
 
-5) when first question is answered;
+(5) when first question is answered;
     a. correctly:
         1. correct.wav sound is triggered (optional)
         2. next question is populated
@@ -28,11 +28,29 @@ Java Script and CSS To-Do list
         2. ten seconds is deducted from timer
         3. next question is populated
 
-6) timer
+(6) timer
     a. timer to start as the game begins
     b. 10 second to be deducted from time when a question is wrongly answered
     c. game to end when timer counts down to zero
     
+
+(7) Display Questions
+    a. add questions to;
+        1. the html documents
+            1a - call querstions using querySellectorAll method and,
+            1b - use a for loop to cycle through the questions then,
+            1c - use a function to carry out tasks that will be carried out 
+                 for each cycle of loop
+
+        2. use javascript to dynamically add the questions to the html document
+           
+
+
+
+
+
+
+
 
 Anticipated probles
     1. Questions and multiple answers populaing area may need styling
