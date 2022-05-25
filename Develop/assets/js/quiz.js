@@ -12,7 +12,7 @@ continueGame.addEventListener('click', StartTheGame);
 
 // function to display the game introductiion and rules
 function callIntroduction() {
-    // alert('I am Alive'); working!!!!
+    // alert('I am Alive'); /* working!!!! */
     // after button is clicked, the button should be hidden.
     document.getElementById('startQuizBtn');
     startQuizBtn.style.visibility = 'hidden';
@@ -20,7 +20,7 @@ function callIntroduction() {
     // then the instruction container is displayed
     document.getElementById('instructions');
     instructions.style.visibility = 'visible';
-    
+   
 }
 
 /* function to return to default screen if game is quitted
@@ -60,7 +60,7 @@ function StartTheGame(){
 }
 
 // create variables and function for timer
-let timer = 59;
+let timer = 5;
 let questionIndex = 0;
 let score = 0;
 
@@ -80,41 +80,49 @@ function startTimerCountdown(){
         /*when timer counts is down to 0, stop the time,
         hide the questions and display the score*/
         if (timer === 0) {
-
             //stop Timer
-            clearInterval(timerInterval)
+            clearInterval(timerInterval);
 
-            //hide question screen
-            questions.style.visibility = 'hidden';
+            // //hide question screen
+            // questions.style.visibility = 'hidden';
 
-            //to display scoreScreen
+            // //to display scoreScreen
             // document.getElementById('endOfQuizScreen');
-            // endOfQuizScreen.style.visibility = visible;
+            // endOfQuizScreen.style.visibility = 'visible';
 
-            // to display score
-            document.getElementById('final score');
+            // // to display score
+            // document.getElementById('final score');
         }
     }, 1000);
 }
 
-// populate the questions to text area
-function displayTheQuestions(){
+/** function for questions and answers. This function will 
+    be passed in the startTimerCountdown Function above, when
+    timer is equal to 0 and stops counting, using the
+    clearInterval(timerInterval); declaration.
+*/
 
-    let questionTitle = questions[questionIndex].questionHeader;
-    document.getElementById('questionHeader').textContent = questionTitle;
 
-    let questionOptions = questions[questionIndex].choices;
-    document.getElementById('choices').textContent = questionOptions;
 
-}
+//array of questions to be called with function
 
-//create a function that will call the answer to question
-function answerQuestion (){
+  
 
-    questionIndex++;
-    displayTheQuestions();
+//     let questionTitle = questions[questionIndex].questionHeader;
+//     document.getElementById('questionHeader').textContent = questionTitle;
+
+//     let questionOptions = questions[questionIndex].choices;
+//     document.getElementById('choices').textContent = questionOptions;
+
+// }
+
+// //create a function that will call the answer to question
+// function answerQuestion (){
+
+//     questionIndex++;
+//     displayTheQuestions();
     
-}
+// }
 
 
 
