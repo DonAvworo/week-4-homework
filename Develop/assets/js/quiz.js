@@ -119,63 +119,41 @@ function displayTheQuestions() {
     //loop through the choices and display them
     for (let i = 0; i < questions[questionIndex].choices.length; i++) {
         let choice = document.createElement('button');
+        choice.style.padding = '10px';
+        choice.style.margin = '10px';
         choice.setAttribute('class', 'optionBtn');
         choice.setAttribute('id', i);
+        choice.onclick = userAnswer;
         choice.textContent = questions[questionIndex].choices[i];
         choices.appendChild(choice);
     }
-        
     
+}
+/** this function is called inside the displayTheQuestions function above 
+ to handle the click event of the users selected choice */
+function userAnswer(event) {
+    let userChoice = event.target.textContent; // get the text of the user's choice
+    let correctAnswer = questions[questionIndex].answer; //get the correct answer
 
+    if (userChoice === correctAnswer) {
+        alert('correct');
+        score++;
+        //display the score
+        document.getElementById('score').textContent = score;
+    }
+    else {
+        alert('wrong');
+        timer -= 10;
+        //display the score
+        document.getElementById('score').textContent = score;
+    }
 
-    
-
-    // if (questionIndex === questions.length) {
-    //     //display the score
-    //     document.getElementById('final score');
-    //     finalScore.textContent = score;
-
-    //     //display the end of quiz screen
-    //     document.getElementById('endOfQuizScreen');
-    //     endOfQuizScreen.style.visibility = 'visible';
-    // }
-   
+    //increment the question index
+    questionIndex++;
+    displayTheQuestions();
     
 }
 
-function userAnswer() {
-    alert('Am I alive? ask me a question'); 
-    //check the answer
-
-   // checkAnswer();
-}
-
-// function checkAnswer () {
-//     // alert('Am I alive? ask me a question'); 
-//     //check if the answer is correct
-//     if (this.textContent === questions[questionIndex].answer) {
-//         // alert('Am I alive? ask me a question'); 
-//         //if correct, increment the score
-//         score++;
-//         //alert('Am I alive? ask me a question'); 
-//         //display the score
-//         document.getElementById('final score');
-//         finalScore.textContent = score;
-//         // alert('Am I alive? ask me a question'); 
-//         //display the next question
-//         questionIndex++;
-//         // alert('Am I alive? ask me a question'); 
-//         //display the next question
-//         displayTheQuestions();
-//     } else {
-//         //if incorrect, decrement the timer
-//         timer--;
-//         //display the next question
-//         questionIndex++;
-//         //display the next question
-//         displayTheQuestions();
-//     }
-// }
 
 
 
