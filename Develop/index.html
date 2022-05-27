@@ -1,47 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Coding Quiz</title>
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JS101.questionaire</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/css/main.css">
+
 </head>
 
 <body>
-    <div class="scores"><a href="highscores.html">View Highscores</a></div>
 
-    <div class="timer">Time: <span id="time">0</span></div>
+    <!-- create a button to start the quiz
+    <div class="startQuizBtn" id="hide">
+        <button class="startBtn">Start Quiz</button>
+    </div> -->
+    <!-- quiz title wrapper with time and scoreboard -->
+    <div class="wrapper-1">
+        <div class="gameTitle" id="gameTitle">
+            <h1 class="title">Coding Quiz Challenge</h1>
+        </div>
 
-    <div class="wrapper">
-        <div id="start-screen" class="start">
-            <h1>Coding Quiz Challenge</h1>
-            <p>
-                Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+        <div class="scores" id="finalscores">
+            <a href="highscores.html">Score Ranking</a>
+        </div>
+
+        <div class="timer" id="timer">
+            Time: <span id="time">0</span>
+        </div>
+    </div>
+
+    <!-- questions, final score info and submit btn area -->
+    <div class="wrapper-2" id="wrapperTwo">
+        
+        <div id="questionsScreen" class="questions">
+            <h2 class="question-title" id="questionHeader"> 
+                Hello o o o o 
+            </h2>
+
+            <div class="choices" id="choices">
+                <span></span>
+            </div>
+
+            <div class="answer" id="answer">
+                <span></span>
+            </div>
+
+
+        </div>
+
+        <div id="endOfQuizScreen" class="hide">
+            <p class="finalScore">Done! Your final score <span id="final score"></span></p>
+            <p class="initials"> Enter Initials: <input type="text" id="initials" max="3"><button id="submit">Submit</button>
             </p>
-            <button id="start">Start Quiz</button>
         </div>
 
-        <div id="questions" class="hide">
-            <h2 id="question-title"></h2>
-            <div id="choices" class="choices"></div>
+    </div>
+
+    <!--Quiz instruction and buttons to start or exit quiz-->
+    <div class="insttructions" id="instructions">
+        <div class="instTitle" id="instTitle">
+            <span>Instructions</span>
+        </div>
+        <div class="howToPlay" id="howToPlay">
+            Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!
         </div>
 
-        <div id="end-screen" class="hide">
-            <h2>All done!</h2>
-            <p>Your final score is <span id="final-score"></span>.</p>
-            <p>
-                Enter initials: <input type="text" id="initials" max="3" />
-                <button id="submit">Submit</button>
-            </p>
+        <!--buttons to start or exit quiz-->
+        <div class="buttons" id="buttons">
+            <button class="quitQuiz" id="quitQuiz">Quit Game</button>
+            <button class="continue" id="continue">Continue</button>
         </div>
+    </div>
 
-        <div id="feedback" class="feedback hide"></div>
+    <!--create a button to start the quiz-->
+    <div class="startQuizBtn" id="startQuizBtn">
+        <button class="startBtn">Start Quiz</button>
     </div>
 
     <script src="./assets/js/questions.js"></script>
-
+    <script src="./assets/js/quiz.js"></script>
 </body>
 
 </html>

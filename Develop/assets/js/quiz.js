@@ -10,6 +10,11 @@ quitGameBtn.addEventListener('click', backToGameTitle);
 let continueGame = document.getElementById('continue');
 continueGame.addEventListener('click', StartTheGame);
 
+// create variables for timer, questionIndex, and score
+let timer = 60;
+let questionIndex = 0;
+let score = 0;
+
 // function to display the game introductiion and rules
 function callIntroduction() {
     // alert('I am Alive'); /* working!!!! */
@@ -47,6 +52,9 @@ function StartTheGame(){
     line and takes up the full width available 
     (stretches out to the left and right as far as it can). www.w3schools.com*/
     questionsScreen.style.display = 'block';
+    questionsScreen.style.width = '100%';
+    questionsScreen.style.visibility = 'visible';
+
 
     /*the function startTimerCountdown() created below,
     is passed insside this function so that the click event that 
@@ -59,12 +67,9 @@ function StartTheGame(){
 
 }
 
-// create variables and function for timer
-let timer = 5;
-let questionIndex = 0;
-let score = 0;
-
-function startTimerCountdown(){
+/**  //function to start the timer. 
+ * This function is called inside the StartTheGame function */
+function startTimerCountdown() {    // TASK COMPLETED!!!
 
     /*nested function to start timer and when 0,
      stop the time and hide the question screen*/
@@ -83,56 +88,96 @@ function startTimerCountdown(){
             //stop Timer
             clearInterval(timerInterval);
 
-            // //hide question screen
-            // questions.style.visibility = 'hidden';
+            //to display scoreScreen
+            document.getElementById('endOfQuizScreen');
+            endOfQuizScreen.style.visibility = 'visible';
 
-            // //to display scoreScreen
-            // document.getElementById('endOfQuizScreen');
-            // endOfQuizScreen.style.visibility = 'visible';
+            // to display score
+            document.getElementById('final score');
 
-            // // to display score
-            // document.getElementById('final score');
+            //hide the questions
+            document.getElementById('questionsScreen');
+            questionsScreen.style.visibility = 'hidden';
         }
     }, 1000);
 }
 
-/** function for questions and answers. This function will 
-    be passed in the startTimerCountdown Function above, when
-    timer is equal to 0 and stops counting, using the
-    clearInterval(timerInterval); declaration.
-*/
+/** function to display the questions and choices. 
+ * This function is called inside the StartTheGame function */
+function displayTheQuestions() {
+        
+    //alert('Am I alive? ask me a question'); 
+    //display the question
 
-
-
-//array of questions to be called with function
-
-  
-
-//     let questionTitle = questions[questionIndex].questionHeader;
-//     document.getElementById('questionHeader').textContent = questionTitle;
-
-//     let questionOptions = questions[questionIndex].choices;
-//     document.getElementById('choices').textContent = questionOptions;
-
-// }
-
-// //create a function that will call the answer to question
-// function answerQuestion (){
-
-//     questionIndex++;
-//     displayTheQuestions();
+    let questionTitle = document.getElementById('questionHeader');
+    questionTitle.textContent = questions[questionIndex].title;
     
+    //display the choices
+    let choices = document.getElementById('choices');
+    choices.innerHTML = '';
+
+    //loop through the choices and display them
+    for (let i = 0; i < questions[questionIndex].choices.length; i++) {
+        let choice = document.createElement('button');
+        choice.setAttribute('class', 'optionBtn');
+        choice.setAttribute('id', i);
+        choice.textContent = questions[questionIndex].choices[i];
+        choices.appendChild(choice);
+    }
+        
+    
+
+
+    
+
+    // if (questionIndex === questions.length) {
+    //     //display the score
+    //     document.getElementById('final score');
+    //     finalScore.textContent = score;
+
+    //     //display the end of quiz screen
+    //     document.getElementById('endOfQuizScreen');
+    //     endOfQuizScreen.style.visibility = 'visible';
+    // }
+   
+    
+}
+
+function userAnswer() {
+    alert('Am I alive? ask me a question'); 
+    //check the answer
+
+   // checkAnswer();
+}
+
+// function checkAnswer () {
+//     // alert('Am I alive? ask me a question'); 
+//     //check if the answer is correct
+//     if (this.textContent === questions[questionIndex].answer) {
+//         // alert('Am I alive? ask me a question'); 
+//         //if correct, increment the score
+//         score++;
+//         //alert('Am I alive? ask me a question'); 
+//         //display the score
+//         document.getElementById('final score');
+//         finalScore.textContent = score;
+//         // alert('Am I alive? ask me a question'); 
+//         //display the next question
+//         questionIndex++;
+//         // alert('Am I alive? ask me a question'); 
+//         //display the next question
+//         displayTheQuestions();
+//     } else {
+//         //if incorrect, decrement the timer
+//         timer--;
+//         //display the next question
+//         questionIndex++;
+//         //display the next question
+//         displayTheQuestions();
+//     }
 // }
 
 
 
-// b) submit button
-// c) where to put the quiz
-// d) text area for results
-// e) text area for questions
 
-// create handlers for buttons
-// create a function to start quiz
-// create a function to get timer counting 
-// create a function that when a question is answered, moves page to the next
-//
+
