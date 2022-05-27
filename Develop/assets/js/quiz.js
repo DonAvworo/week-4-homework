@@ -134,23 +134,41 @@ function displayTheQuestions() {
 function userAnswer(event) {
     let userChoice = event.target.textContent; // get the text of the user's choice
     let correctAnswer = questions[questionIndex].answer; //get the correct answer
+    let feedback = document.getElementById('feedback'); //get the feedback div
 
     if (userChoice === correctAnswer) {
-        alert('correct');
+        feedback.textContent = 'Correct';
         score++;
         //display the score
-        document.getElementById('score').textContent = score;
+        document.getElementById('feedback').style.visibility = 'visible';
+        document.getElementById('feedback').textContent = feedback;
     }
     else {
-        alert('wrong');
+        feedback.textContent = 'Incorrect';
         timer -= 10;
         //display the score
-        document.getElementById('score').textContent = score;
+        document.getElementById('feedback').style.visibility = 'visible';
+        document.getElementById('feedback').textContent = feedback;
+        //document.getElementById('feedback').style.visibility = 'hidden';
     }
 
-    //increment the question index
+    //increment the question index and run the displayTheQuestions function again
     questionIndex++;
     displayTheQuestions();
+
+    if (questionIndex === questions.length && 
+        timer === 0 ) {
+        //display the score
+        document.getElementById('endOfQuizScreen');
+        endOfQuizScreen.style.visibility = 'visible';
+        document.getElementById('finalScore');
+        document.getElementById('finalScore').textContent = finalScore;
+        document.getElementById('finalScore').style.visibility = 'visible';
+        //hide the questions
+        document.getElementById('questionsScreen');
+        questionsScreen.style.visibility = 'hidden';
+    }
+    
     
 }
 
