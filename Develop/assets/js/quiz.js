@@ -26,7 +26,7 @@ function callIntroduction() {
     document.getElementById('instructions');
     instructions.style.visibility = 'visible';
    
-}
+} 
 
 /* function to return to default screen if game is quitted
 (hide introduction screen and show start button)*/
