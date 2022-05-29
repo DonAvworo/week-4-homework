@@ -87,6 +87,7 @@ function startTimerCountdown() {    // TASK COMPLETED!!!
         if (timer === 0) {
             //stop Timer
             clearInterval(timerInterval);
+            time.textContent = '0'; //change the time to 0
 
             //to display scoreScreen
             document.getElementById('endOfQuizScreen');
@@ -123,7 +124,7 @@ function displayTheQuestions() {
         choice.style.margin = '10px';
         choice.setAttribute('class', 'optionBtn');
         choice.setAttribute('id', i);
-        choice.onclick = userAnswer;
+        choice.onclick = userAnswer; //pass in the userAnswer function created below
         choice.textContent = questions[questionIndex].choices[i];
         choices.appendChild(choice);
     }
@@ -140,36 +141,37 @@ function userAnswer(event) {
         feedback.textContent = 'Correct';
         score++;
         //display the score
-        document.getElementById('feedback').style.visibility = 'visible';
-        document.getElementById('feedback').textContent = feedback;
+        feedback.style.visibility = 'visible';
+        
     }
     else {
         feedback.textContent = 'Incorrect';
         timer -= 10;
         //display the score
-        document.getElementById('feedback').style.visibility = 'visible';
-        document.getElementById('feedback').textContent = feedback;
-        //document.getElementById('feedback').style.visibility = 'hidden';
+        feedback.style.visibility = 'visible';
     }
 
     //increment the question index and run the displayTheQuestions function again
     questionIndex++;
-    displayTheQuestions();
+    // displayTheQuestions();
 
     if (questionIndex === questions.length && 
-        timer === 0 ) {
+        timer === 0 || questionIndex === questions.length) {
         //display the score
         document.getElementById('endOfQuizScreen');
         endOfQuizScreen.style.visibility = 'visible';
         document.getElementById('finalScore');
-        document.getElementById('finalScore').textContent = finalScore;
-        document.getElementById('finalScore').style.visibility = 'visible';
+        finalScore.textContent = finalScore; //display the score on the end of quiz screen
+        finalScore.style.visibility = 'visible';
         //hide the questions
         document.getElementById('questionsScreen');
         questionsScreen.style.visibility = 'hidden';
+        //stop the timer
+        // clearInterval(timerInterval); /** did not work */
     }
-    
-    
+
+    displayTheQuestions();
+
 }
 
 
