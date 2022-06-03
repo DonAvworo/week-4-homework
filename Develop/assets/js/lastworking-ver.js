@@ -1,5 +1,5 @@
 
-// create handlers and event listeners for buttons
+// create handlers and event listeners to buttons
 // a) start button 
 let startGameBtn = document.getElementById('startQuizBtn');
 startGameBtn.addEventListener('click', callIntroduction);
@@ -14,27 +14,16 @@ continueGame.addEventListener('click', StartTheGame);
 let timer = 60;
 let questionIndex = 0;
 let score = 0;
-let timerInterval;
-
-
-//other variables to store elements of the page
-let questionsScreen = document.getElementById('questionsScreen');
-let endOfQuizScreen = document.getElementById('endOfQuizScreen');
-let instructions = document.getElementById('instructions');
-let finalScore = document.getElementById('finalScore');
-
-
-
 
 // function to display the game introductiion and rules
 function callIntroduction() {
     // alert('I am Alive'); /* working!!!! */
     // after button is clicked, the button should be hidden.
-    // document.getElementById('startQuizBtn');
+    document.getElementById('startQuizBtn');
     startQuizBtn.style.visibility = 'hidden';
 
     // then the instruction container is displayed
-    //document.getElementById('instructions');
+    document.getElementById('instructions');
     instructions.style.visibility = 'visible';
    
 } 
@@ -52,11 +41,11 @@ function backToGameTitle() {
     startQuizBtn.style.visibility = 'visible';
 }
 
-//function to start the game
 function StartTheGame(){
     // alert('Click OK to start the Game'); 
-    //document.getElementById('quitQuiz');
-    instructions.style.visibility = 'hidden'; // hide the instructions
+    //hide introduction screen
+    document.getElementById('quitQuiz');
+    instructions.style.visibility = 'hidden';
 
     // call the question screen 
     /*A block-level element always starts on a new 
@@ -76,19 +65,6 @@ function StartTheGame(){
     //display questions
     displayTheQuestions();
 
-}
-
-// function to end the game
-function endTheGame() {     // called inside the startTimerCountdown function
-    //stop the timer
-    clearInterval(timerInterval); 
-
-    //hide the questions
-    document.getElementById('questionsScreen');
-    questionsScreen.style.visibility = 'hidden';
-
-    //display the end of game screen
-    endOfQuizScreen.style.visibility = 'visible';
 }
 
 /**  //function to start the timer. 
@@ -114,7 +90,7 @@ function startTimerCountdown() {    // TASK COMPLETED!!!
             time.textContent = '0'; //change the time to 0
 
             //to display scoreScreen
-            //document.getElementById('endOfQuizScreen');
+            document.getElementById('endOfQuizScreen');
             endOfQuizScreen.style.visibility = 'visible';
 
             // to display score
@@ -132,7 +108,6 @@ function startTimerCountdown() {    // TASK COMPLETED!!!
 function displayTheQuestions() {
         
     //alert('Am I alive? ask me a question'); 
-
     //display the question
 
     let questionTitle = document.getElementById('questionHeader');
@@ -152,9 +127,9 @@ function displayTheQuestions() {
         choice.onclick = userAnswer; //pass in the userAnswer function created below
         choice.textContent = questions[questionIndex].choices[i];
         choices.appendChild(choice);
-    }   
+    }
+    
 }
-
 /** this function is called inside the displayTheQuestions function above 
  to handle the click event of the users selected choice */
 function userAnswer(event) {
@@ -163,13 +138,14 @@ function userAnswer(event) {
     let feedback = document.getElementById('feedback'); //get the feedback div
 
     if (userChoice === correctAnswer) {
-        feedback.textContent = 'Correct!';
+        feedback.textContent = 'Correct';
         score++;
         //display the score
-        feedback.style.visibility = 'visible';     
+        feedback.style.visibility = 'visible';
+        
     }
     else {
-        feedback.textContent = 'Incorrect!';
+        feedback.textContent = 'Incorrect';
         timer -= 10;
         //display the score
         feedback.style.visibility = 'visible';
@@ -177,18 +153,18 @@ function userAnswer(event) {
 
     //increment the question index and run the displayTheQuestions function again
     questionIndex++;
-    //displayTheQuestions();
+    // displayTheQuestions();
 
     if (questionIndex === questions.length && 
-        timer === 0) {
+        timer === 0 || questionIndex === questions.length) {
         //display the score
-        //document.getElementById('endOfQuizScreen');
+        document.getElementById('endOfQuizScreen');
         endOfQuizScreen.style.visibility = 'visible';
-        //document.getElementById('finalScore');
+        document.getElementById('finalScore');
         finalScore.textContent = finalScore; //display the score on the end of quiz screen
         finalScore.style.visibility = 'visible';
         //hide the questions
-        //document.getElementById('questionsScreen');
+        document.getElementById('questionsScreen');
         questionsScreen.style.visibility = 'hidden';
         //stop the timer
         // clearInterval(timerInterval); /** did not work */
