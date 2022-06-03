@@ -35,4 +35,6 @@ To run the quiz:
 * Click Score Ranking to View Scre Board
 
 ```
+
+## UI Screenshot
 ![image of User Interface](Develop/assets/screen-shots/Screenshot%202022-06-03%20at%2013.13.34.png)
