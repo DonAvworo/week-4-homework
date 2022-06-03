@@ -5,10 +5,10 @@ let startGameBtn = document.getElementById('startQuizBtn');
 startGameBtn.addEventListener('click', callIntroduction);
 // b) quit button
 let quitGameBtn = document.getElementById('quitQuiz');
-quitGameBtn.addEventListener('click', backToGameTitle);
+quitGameBtn.addEventListener('click', backToQuizTitle);
 // c) continue button
 let continueGame = document.getElementById('continue');
-continueGame.addEventListener('click', StartTheGame);
+continueGame.addEventListener('click', startTheQuiz);
 
 // create variables for timer, questionIndex, and score
 let timer = 60;
@@ -21,9 +21,7 @@ let timerInterval;
 let questionsScreen = document.getElementById('questionsScreen');
 let endOfQuizScreen = document.getElementById('endOfQuizScreen');
 let instructions = document.getElementById('instructions');
-let finalScore = document.getElementById('finalScore');
-
-
+// let finalScore = document.getElementById('finalScore');
 
 
 // function to display the game introductiion and rules
@@ -41,7 +39,7 @@ function callIntroduction() {
 
 /* function to return to default screen if game is quitted
 (hide introduction screen and show start button)*/
-function backToGameTitle() {
+function backToQuizTitle() {
     // alert('I am the quit button I am Alive'); 
     //hide introduction screen
     document.getElementById('quitQuiz');
@@ -53,7 +51,7 @@ function backToGameTitle() {
 }
 
 //function to start the game
-function StartTheGame(){
+function startTheQuiz(){
     // alert('Click OK to start the Game'); 
     //document.getElementById('quitQuiz');
     instructions.style.visibility = 'hidden'; // hide the instructions
@@ -97,8 +95,7 @@ function startTimerCountdown() {    // TASK COMPLETED!!!
 
     /*nested function to start timer and when 0,
      stop the time and hide the question screen*/
-    let timerInterval = setInterval(function()
-    {
+     timerInterval = setInterval(function(){
 
         // to display the timer
         document.getElementById('time').textContent = timer;
@@ -106,29 +103,17 @@ function startTimerCountdown() {    // TASK COMPLETED!!!
         //to decrease time
         timer--;
 
-        /*when timer counts is down to 0, stop the time,
-        hide the questions and display the score*/
+        /*when timer counts is down to 0, stop the time, (using the endTheGame function) and
+        hide the questions */
         if (timer === 0) {
             //stop Timer
-            clearInterval(timerInterval);
-            time.textContent = '0'; //change the time to 0
-
-            //to display scoreScreen
-            //document.getElementById('endOfQuizScreen');
-            endOfQuizScreen.style.visibility = 'visible';
-
-            // to display score
-            document.getElementById('final score');
-
-            //hide the questions
-            document.getElementById('questionsScreen');
-            questionsScreen.style.visibility = 'hidden';
+            endTheGame();
         }
     }, 1000);
 }
 
 /** function to display the questions and choices. 
- * This function is called inside the StartTheGame function */
+ * This function is called inside the startTheQuiz function */
 function displayTheQuestions() {
         
     //alert('Am I alive? ask me a question'); 
@@ -142,7 +127,8 @@ function displayTheQuestions() {
     let choices = document.getElementById('choices');
     choices.innerHTML = '';
 
-    //loop through the choices and display them
+    //loop through the choices and display them. The choices are stored in the external questions.js file
+    //the method to use the data in the external js. file is web api
     for (let i = 0; i < questions[questionIndex].choices.length; i++) {
         let choice = document.createElement('button');
         choice.style.padding = '10px';
@@ -161,42 +147,50 @@ function userAnswer(event) {
     let userChoice = event.target.textContent; // get the text of the user's choice
     let correctAnswer = questions[questionIndex].answer; //get the correct answer
     let feedback = document.getElementById('feedback'); //get the feedback div
+    //let soundCorrect = ('./sfx/correct.wav'); //get the audio file
+    //let soundIncorrect = ('./sfx/incorrect.wav'); //get the audio file
+
 
     if (userChoice === correctAnswer) {
-        feedback.textContent = 'Correct!';
         score++;
-        //display the score
-        feedback.style.visibility = 'visible';     
+        feedback.textContent = 'Correct!' + ' ' + 'You got ' + score + ' ' + 'points' + ' ' + 'out of ' + questions.length;
+        // document.getElementById('score').textContent = score; //display the score
+        //display the score score and correct answer text
+        feedback.style.visibility = 'visible'; //display the feedback   
+        //soundCorrect.play(); //play the sound from the sfx folder
+
     }
     else {
-        feedback.textContent = 'Incorrect!';
-        timer -= 10;
-        //display the score
+        //display the user score and correct answer text using concatenation of strings ans variables
+        feedback.textContent = 'Incorrect!' + ' ' + 'The correct answer is ' + correctAnswer + ' ' + 'You got ' + score + ' ' + 'points' + ' ' + 'out of ' + questions.length;
+        timer -= 10;                                                        //var in line 148                //var in line 168                               //js pre defined 
+        //display the incorrect answer text
         feedback.style.visibility = 'visible';
+        //soundIncorrect.play(); //play the sound from the sfx folder
     }
 
     //increment the question index and run the displayTheQuestions function again
     questionIndex++;
     //displayTheQuestions();
 
-    if (questionIndex === questions.length && 
-        timer === 0) {
-        //display the score
-        //document.getElementById('endOfQuizScreen');
-        endOfQuizScreen.style.visibility = 'visible';
-        //document.getElementById('finalScore');
-        finalScore.textContent = finalScore; //display the score on the end of quiz screen
-        finalScore.style.visibility = 'visible';
-        //hide the questions
-        //document.getElementById('questionsScreen');
-        questionsScreen.style.visibility = 'hidden';
-        //stop the timer
-        // clearInterval(timerInterval); /** did not work */
+    if (questionIndex === questions.length) {
+        endTheGame();
+
+        feedback.textContent = 'You got ' + ' ' + timer + ' seconds' + ' remaining, ' + score + ' ' + ' out of ' + questions.length + ' ' + ' questions answered correctly, ' + ' AND 5 STARS ***** ' + ' for participating in the quiz!';
+    } 
+    else {
+       displayTheQuestions();
     }
 
-    displayTheQuestions();
-
 }
+
+
+
+
+
+
+
+
 
 
 
