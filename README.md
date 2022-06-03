@@ -33,7 +33,6 @@ To run the quiz:
 * Follow instructions to answer questions
 * When the quiz is over, enter initials to add your score to the score rank and click submit
 * Click Score Ranking to View Scre Board
-
 ```
 ## UI Screenshot
 ![image of User Interface](Develop/assets/screen-shots/Screenshot%202022-06-03%20at%2013.13.34.png)
