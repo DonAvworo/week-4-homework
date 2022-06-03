@@ -1,99 +1,39 @@
-# 04 Web APIs: Code Quiz
+# Quiz on Java Script
 
-## Your Task
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [How to Play](#how-to-play)
+* [Enter your score](#enter-your-score)
 
-At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
+## General info
+This is simple game-like java script powered question and answer quiz. The user simply follows the on-screen instrutions to start the quiz and answer qusetions shown on screen by clicking on an option of answers provided to each question. 
 
-To help familiarize you with these tests and allow you to use the skills covered in this unit, this week’s homework invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. 
+If the user gets the answer to a question right, then the next question will be automatically be presented to them.
 
-This week’s coursework will equip you with all the skills you need to succeed in this assignment.
+If user get the answer wrong, 10 seconds will be deduted from the time reamining to answer all questions. 
 
-## User Story
+The time to answer all questions is set to 60 seconds (1 minute).
+
+Users are awarded 5 STARS for taking the quiz so enjoy playing ;)
+
+## Technologies
+Project is created with:
+* Visual Studio Code
+* HTML 5
+* CSS
+* Java Script (using Web APIs)
+
+## How to Play
+To run the quiz:
 
 ```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
+* Open any web browser and enter the link ----------
+* Click on the start quiz button
+* Follow instructions to answer questions
+* When the quiz is over, enter initials to add your score to the score rank and click submit
+* Click Score Ranking to View Scre Board
+
 ```
-
-## Acceptance Criteria
-
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
-```
-
-## Mock-Up
-
-The following animation demonstrates the application functionality:
-
-![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/04-web-apis-homework-demo.gif)
-
-## Grading Requirements
-
-> **Note**: If a homework assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This homework is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the homework instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+## UI Screenshot
+![image of User Interface](Develop/assets/screen-shots/Screenshot%202022-06-03%20at%2013.13.34.png)
