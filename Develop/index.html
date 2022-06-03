@@ -23,7 +23,7 @@
             <h1 class="title">Coding Quiz Challenge</h1>
         </div>
 
-        <div class="scores" id="finalscores">
+        <div class="scores" id="scoreRanking">
             <a href="highscores.html">Score Ranking</a>
         </div>
 
@@ -52,14 +52,14 @@
         </div>
 
         <div id="endOfQuizScreen" class="hide">
-            <p class="finalScore">Done! Your final score is <span id="finalScore"></span></p>
+            <p class="finalScore" id="finalScore">End of Quiz! Thanks for playing!</p>
             <p class="initials"> Enter Initials: <input type="text" id="initials" max="3"><button id="submit">Submit</button>
             </p>
         </div>
 
-        <div id="feedback" class="feedback">
-
-        </div>
+        <div id="feedback" class="feedback"></div>
+        <div id="score" class="score"></div>
+        <div id="displayFinalScore"></div>
 
     </div>
 
@@ -74,8 +74,8 @@
 
         <!--buttons to start or exit quiz-->
         <div class="buttons" id="buttons">
-            <button class="quitQuiz" id="quitQuiz">Quit Game</button>
-            <button class="continue" id="continue">Continue</button>
+            <button class="quitQuiz" id="quitQuiz">Quit Quiz</button>
+            <button class="continue" id="continue">Continue Quiz</button>
         </div>
     </div>
 
