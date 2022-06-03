@@ -17,7 +17,7 @@ The time to answer all questions is set to 60 seconds (1 minute).
 
 Users are awarded 5 STARS for taking the quiz so enjoy playing ;)
 
-[short video](Develop/assets/screen-shots/JS.Quiz.mov)
+[video demonstration](Develop/assets/screen-shots/short-video.mp4)
 
 ## Technologies
 Project is created with:
