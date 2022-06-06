@@ -234,8 +234,7 @@ function submitScore() {
     let userScore = score;
     //store the user's score in the local storage
     localStorage.setItem('userScore', userScore); // ref: https://www.w3schools.com/jsref/prop_win_localstorage.asp
-    //redirect the user to the high scores page
-    window.location.href = 'highScores.html';
+
 }
 
 // function to store the user's initials 
@@ -246,15 +245,14 @@ function saveUserInfo() {
     //userInitials.createElement('p');
     userInitials.textContent = userInitials;
     //userInitials.appendChild(p);
-
-    //redirect the user to the high scores page
-    window.location.href = 'highScores.html';
 }
     
 
 function toFinishQuiz() {
     saveUserInfo();
     submitScore();
+    //redirect the user to the high scores page
+    window.location.href = 'highScores.html';
 }
 
 
