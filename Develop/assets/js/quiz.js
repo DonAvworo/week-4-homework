@@ -173,8 +173,6 @@ function userAnswer(event) {
    
     feedback.style.color = 'black'; //change the color of the feedback message to black
     
-
-
     if (userChoice === correctAnswer) {
         score++;
         feedback.style.fontWeight = 'bold';
@@ -226,18 +224,37 @@ function userAnswer(event) {
 
 }
 
+//to finish the quiz
 let submitBtn = document.getElementById('submitBtn');
-submitBtn.addEventListener('click', saveUserInfo);
+submitBtn.addEventListener('click', toFinishQuiz);
 
+// function to store the user's score and submit the score to the local storage
+function submitScore() {
+    //get the user's score
+    let userScore = score;
+    //store the user's score in the local storage
+    localStorage.setItem('userScore', userScore); // ref: https://www.w3schools.com/jsref/prop_win_localstorage.asp
+    //redirect the user to the high scores page
+    window.location.href = 'highScores.html';
+}
+
+// function to store the user's initials 
 function saveUserInfo() {
-    // alert('I am the submit button I am Alive');
-
     //get the user's initials and store it in a variable
     let userInitials = document.getElementById('userInitials').value;
     window.localStorage.setItem('userInitials', userInitials);
-    
-    //get the user's score and store it in a variable
+    //userInitials.createElement('p');
+    userInitials.textContent = userInitials;
+    //userInitials.appendChild(p);
 
+    //redirect the user to the high scores page
+    window.location.href = 'highScores.html';
+}
+    
+
+function toFinishQuiz() {
+    saveUserInfo();
+    submitScore();
 }
 
 

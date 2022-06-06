@@ -4,7 +4,8 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [How to Play](#how-to-play)
-* [Enter your score](#enter-your-score)
+* [Screenshot](screenshot)
+* [Notes](#notes)
 
 ## General info
 This is simple game-like java script powered question and answer quiz. The user simply follows the on-screen instrutions to start the quiz and answer qusetions shown on screen by clicking on an option of answers provided to each question. 
@@ -37,3 +38,6 @@ To run the quiz:
 ```
 ## UI Screenshot
 ![image of User Interface](Develop/assets/screen-shots/Screenshot%202022-06-03%20at%2013.13.34.png)
+
+#### Notes
+Comments on the html, css and js documents are for learning and revision purposes only.

@@ -7,7 +7,7 @@ for (let i = 0; i < highscore.length; i++) {
     highscore.appendChild(li);
 }
 
-// clear the local storage
+// function to clear the local storage
 let clearHighScoresBtn = document.getElementById('clear');
 clearHighScoresBtn.addEventListener('click', clearLocalStorage);
 
