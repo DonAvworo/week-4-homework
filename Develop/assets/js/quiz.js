@@ -22,6 +22,7 @@ let questionsScreen = document.getElementById('questionsScreen');
 let endOfQuizScreen = document.getElementById('endOfQuizScreen');
 let instructions = document.getElementById('instructions');
 // let finalScore = document.getElementById('finalScore');
+let scoreTimeContainer = document.getElementById('score-time-container');
 
 
 // function to display the game introductiion and rules
@@ -34,6 +35,8 @@ function callIntroduction() {
     // then the instruction container is displayed
     //document.getElementById('instructions');
     instructions.style.visibility = 'visible';
+
+    scoreTimeContainer.style.visibility = 'hidden';
    
 } 
 
@@ -48,6 +51,19 @@ function backToQuizTitle() {
     //show start button
     document.getElementById('startQuizBtn');
     startQuizBtn.style.visibility = 'visible';
+
+    //message displayed on screen when game is quitted
+    feedback.textContent = 'CHICKEN DINNER!!!?';
+    feedback.style.color = 'red';
+    feedback.style.fontSize = '30px';
+    feedback.style.fontWeight = 'bold';
+    feedback.style.visibility = 'visible';
+    feedback.style.bottom = '60px';
+
+    //this code moves the start button away from the feedback message
+    startGameBtn.style.top = '40%';
+
+
 }
 
 //function to start the game
@@ -63,6 +79,11 @@ function startTheQuiz(){
     questionsScreen.style.display = 'block';
     questionsScreen.style.width = '100%';
     questionsScreen.style.visibility = 'visible';
+    
+    scoreTimeContainer.style.visibility = 'visible'; // show the score and timer
+
+    feedback.style.visibility = 'hidden'; // hide the feedback message that was displayed when the game was quitted
+    
 
 
     /*the function startTimerCountdown() created below,
@@ -149,23 +170,35 @@ function userAnswer(event) {
     let feedback = document.getElementById('feedback'); //get the feedback div
     //let soundCorrect = ('./sfx/correct.wav'); //get the audio file
     //let soundIncorrect = ('./sfx/incorrect.wav'); //get the audio file
-
-
+   
+    feedback.style.color = 'black'; //change the color of the feedback message to black
+    
     if (userChoice === correctAnswer) {
         score++;
+        feedback.style.fontWeight = 'bold';
+        feedback.style.padding = '12px'; //padding used to add space around the text content, in this case, helps to make the text more readable when screen is resized
+        feedback.style.color = 'green'; //change the color of the feedback message to green to signify the game is over
         feedback.textContent = 'Correct!' + ' ' + 'You got ' + score + ' ' + 'points' + ' ' + 'out of ' + questions.length;
         // document.getElementById('score').textContent = score; //display the score
         //display the score score and correct answer text
-        feedback.style.visibility = 'visible'; //display the feedback   
+       
+        feedback.style.visibility = 'visible'; //display the feedback 
+          
         //soundCorrect.play(); //play the sound from the sfx folder
 
     }
     else {
         //display the user score and correct answer text using concatenation of strings ans variables
+        
+        feedback.style.fontWeight = 'bold';
+        feedback.style.padding = '12px'; //padding used to add space around the text content, in this case, helps to make the text more readable when screen is resized
+        feedback.style.color = 'red'; //change the color of the feedback message to red to signify the game is over
+        
         feedback.textContent = 'Incorrect!' + ' ' + 'The correct answer is ' + correctAnswer + ' ' + 'You got ' + score + ' ' + 'points' + ' ' + 'out of ' + questions.length;
         timer -= 10;                                                        //var in line 148                //var in line 168                               //js pre defined 
-        //display the incorrect answer text
-        feedback.style.visibility = 'visible';
+        
+        feedback.style.visibility = 'visible'; //display the incorrect answer text
+        
         //soundIncorrect.play(); //play the sound from the sfx folder
     }
 
@@ -174,15 +207,57 @@ function userAnswer(event) {
     //displayTheQuestions();
 
     if (questionIndex === questions.length) {
+        //display the correct answer text
+        feedback.textContent = 'Correct!' + ' ' + 'You got ' + score + ' ' + 'points' + ' ' + 'out of ' + questions.length;
+        //wait for 3 seconds and then display the end of game screen
+        // setTimeout(function(endTheGame), 3000);
         endTheGame();
-
-        feedback.textContent = 'You got ' + ' ' + timer + ' seconds' + ' remaining, ' + score + ' ' + ' out of ' + questions.length + ' ' + ' questions answered correctly, ' + ' AND 5 STARS ***** ' + ' for participating in the quiz!';
+    
+        feedback.style.fontWeight = 'bold';
+        feedback.style.padding = '10px'; //padding used to add space around the text content, in this case, helps to make the text more readable when screen is resized
+        feedback.style.color = 'black'; //change the color of the feedback message to black to signify the game is over
+        feedback.textContent = 'GAME OVER!!!' + ' ' + ' You got ' + ' ' + timer + ' seconds' + ' remaining, ' + score + ' ' + ' out of ' + questions.length + ' ' + ' questions answered correctly, ' + ' AND 5 STARS ***** ' + ' for participating in the quiz!';
     } 
     else {
        displayTheQuestions();
     }
 
 }
+
+//to finish the quiz
+let submitBtn = document.getElementById('submitBtn');
+submitBtn.addEventListener('click', toFinishQuiz);
+
+// function to store the user's score and submit the score to the local storage
+function submitScore() {
+    //get the user's score
+    let userScore = score;
+    //store the user's score in the local storage
+    localStorage.setItem('userScore', userScore); // ref: https://www.w3schools.com/jsref/prop_win_localstorage.asp
+    //redirect the user to the high scores page
+    window.location.href = 'highScores.html';
+}
+
+// function to store the user's initials 
+function saveUserInfo() {
+    //get the user's initials and store it in a variable
+    let userInitials = document.getElementById('userInitials').value;
+    window.localStorage.setItem('userInitials', userInitials);
+    //userInitials.createElement('p');
+    userInitials.textContent = userInitials;
+    //userInitials.appendChild(p);
+
+    //redirect the user to the high scores page
+    window.location.href = 'highScores.html';
+}
+    
+
+function toFinishQuiz() {
+    saveUserInfo();
+    submitScore();
+}
+
+
 
 
 

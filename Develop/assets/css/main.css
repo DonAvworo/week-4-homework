@@ -151,7 +151,7 @@ values when repositioning button */
     /* border: none; */
     /* border-radius: 20px 20px 0px 0px; */
 }
-.wrapper-2 #endOfQuizScreen .finalScore {
+/* .wrapper-2 #endOfQuizScreen .finalScore {
     position: absolute;
     background-color: whitesmoke;
     height: 50px;
@@ -165,7 +165,7 @@ values when repositioning button */
     padding: 15px 30px;
     border: none;
     border-radius: 20px;
-}
+} */
 .wrapper-2 #endOfQuizScreen .initials {
     position: absolute;
     /* background-color: whitesmoke; */
@@ -182,6 +182,19 @@ values when repositioning button */
     border-radius: 20px;
 }
 
+/* stylingg for the "rankingBtn-href" div */ 
+.rankingBtn-href {
+    display: flex;
+    cursor: pointer;
+    color: rgb(25, 97, 97);
+    font-weight: 500;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 80px;
+
+}
 
 /* STYLING FOR THE SCORE PAGE */
 
@@ -192,12 +205,7 @@ values when repositioning button */
     top: 50%;
 }
 
-
 .score-wrapper .goBackBtn, .clearScoreBtn{
-    /* background: red; */
-    /* border-color: solid white; */
-    /* border: 5px; */
-    /* opacity: 20%; */
     display: flex;
     margin-top: 5px;
     height: 50px;
@@ -205,8 +213,60 @@ values when repositioning button */
     align-items: center;
     justify-content: flex-end;
     cursor: pointer;
-    /* background: green; */
-    /* border-color: solid white;
-    border: 5px; */
     border-radius: 50px;
 }
+
+.score-time-container {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    color: black;
+    opacity: 50%;
+    bottom: 80px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 80px;
+}
+
+@media screen and (max-width: 500px) {
+
+    .wrapper-1 {
+        /* transform: translate(-50%, -50%); */
+        /* position: absolute; */
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        font-size: medium;
+    }
+    .wrapper-2 {
+        /* transform: translate(-50%, -50%); */
+        /* position: absolute; */
+        left: 50%;
+        top: 50%;
+        text-align: center;
+    }
+
+    .insttructions {
+        /* transform: translate(-50%, -50%); */
+        /* position: absolute; */
+        left: 50%;
+        top: 54%;
+        text-align: center;
+       width: fit-content;
+    }
+}
+
+@media screen and (max-width: 950px) {
+
+    .score-time-container {
+        /* transform: translate(-50%, -50%); */
+        /* position: absolute; */
+        left: 50%;
+        display: flex;
+        top: 53%;
+    }
+    
+}
+

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>JS101.questionaire</title>
+    <title>JS101-Quiz</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/css/main.css">
@@ -23,14 +23,26 @@
             <h1 class="title">Coding Quiz Challenge</h1>
         </div>
 
-        <div class="scores" id="scoreRanking">
+        <!-- <div class="scores" id="scoreRanking">
             <a href="highscores.html">Score Ranking</a>
         </div>
 
         <div class="timer" id="timer">
             Time: <span id="time">0</span>
+        </div> -->
+    </div>
+
+    <div class="score-time-container" id="score-time-container">
+
+        <div class="scores" id="scoreRanking">
+        <a href="highscores.html"><button id="rankingBtn-href"> Ranking</button></a>
+        </div>
+    
+        <div class="timer" id="timer">
+        Time: <span id="time">0</span>
         </div>
     </div>
+
 
     <!-- questions, final score info and submit btn area -->
     <div class="wrapper-2" id="wrapperTwo">
@@ -52,8 +64,8 @@
         </div>
 
         <div id="endOfQuizScreen" class="hide">
-            <p class="finalScore" id="finalScore">End of Quiz! Thanks for playing!</p>
-            <p class="initials"> Enter Initials: <input type="text" id="initials" max="3"><button id="submit">Submit</button>
+            <!-- <p class="finalScore" id="finalScore">End of Quiz! Thanks for playing!</p> -->
+            <p class="initials"> Enter Initials: <input type="text" id="userInitials" max="3"><button id="submitBtn">Submit</button>
             </p>
         </div>
 
